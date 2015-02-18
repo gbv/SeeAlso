@@ -1,0 +1,15 @@
+language: perl
+perl:
+    - 5.14
+before_install:
+    - sudo make dependencies
+install:
+    - carton install --deployment
+script:
+    - export PACKAGE=`perl -ne 'print $1 if /^Package:\s+(.+)/;' < debian/control`
+    - make release-file
+    - sudo dpkg -i ${PACKAGE}_*.deb
+    - sudo service ${PACKAGE} status
+    - sudo service ${PACKAGE} restart
+    - carton exec prove -Ilib --verbose
+cache: apt
