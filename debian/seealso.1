@@ -36,6 +36,7 @@ Files are installed at the following locations:
 .PP
 See \f[C]/etc/default/seealso\f[] for basic configuration.
 Settings are not modified by updates.
+Restart is needed after changes.
 Only simple key value\-pairs are allowed with the following keys:
 .IP \[bu] 2
 \f[C]PORT\f[] \- port number (required, 6009 by default)
@@ -44,14 +45,16 @@ Only simple key value\-pairs are allowed with the following keys:
 default).
 If put behind a HTTP proxy, this number is not affected by slow cient
 connections but only by the time of processing each request.
+.PP
+Additional configuration is placed in a YAML file in
+\f[C]/etc/seealso/seealso.yaml\f[].
+The following keys are recognized:
 .IP \[bu] 2
-\f[C]PROXY\f[] \- a space\-or\-comma\-separated list of trusted IPs or
+\f[C]proxy\f[] \- a space\-or\-comma\-separated list of trusted IPs or
 IP\-ranges (e.g.
 \f[C]192.168.0.0/16\f[]) to take from the \f[C]X\-Forwarded\-For\f[]
 header.
 The special value \f[C]*\f[] can be used to trust all IPs.
-.PP
-Restart is needed after changes.
 .PP
 The HTML client can be customized by putting static files into directory
 \f[C]/etc/seealso/htdocs\f[] to override files in
@@ -62,4 +65,4 @@ Changelog is located in \f[C]debian/changelog\f[] in the source code
 repository.
 .PP
 Source code and issue tracker at <https://github.com/gbv/seealso>.
-See file \f[C]CONTRIBUTING.md\f[] source code organization.
+See file \f[C]CONTRIBUTING.md\f[] for details.

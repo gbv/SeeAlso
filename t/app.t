@@ -11,6 +11,11 @@ test_psgi $app, sub {
     my $cb = shift;
     my $res = $cb->(GET "/");
     is $res->code, '200', "/";
+
+    foreach my $url (qw(/pnd2vd17)) {
+        my $res = $cb->(GET $url);
+        is $res->code, '300', $url;
+    }
 };
 
 done_testing;

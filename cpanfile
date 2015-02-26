@@ -12,6 +12,12 @@ requires 'Plack::Middleware::Rewrite';
 # - YAML (libyaml-perl)
 # - Template Toolkit (libtemplate-perl)
 
+# not available at Ubuntu 12.04 LTS yet:
+requires 'CGI::Expand';
+requires 'Config::Onion';
+requires 'Data::Util';
+requires 'Marpa::R2';
+
 # Catmandu dependencies
 requires 'Catmandu';
 requires 'Catmandu::SRU';

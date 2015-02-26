@@ -8,16 +8,15 @@ DEPENDS:=$(shell perl -ne 'print $$1 if /^Depends:\s+(.+)/;' < debian/control)
 DEPLIST:=$(shell echo "$(DEPENDS)" | perl -pe 's/(\s|,|[$(POPEN)].+?[$(PCLOSE)])+/ /g')
 ARCH   :=$(shell perl -ne 'print $$1 if /^Architecture:\s+(.+)/;' < debian/control)
 RELEASE:=${PACKAGE}_${VERSION}_${ARCH}.deb
+MAINSRC:=lib/GBV/App/SeeAlso.pm
 
 info:
 	@echo "Release: $(RELEASE)"
 	@echo "Depends: $(DEPENDS)"
 
 version:
-	@perl -p -i -e 's/^our\s+\$$VERSION\s*=.*/our \$$VERSION="$(VERSION)";/' \
-		lib/GBV/App/SeeAlso.pm
-	@perl -p -i -e 's/^our\s+\$$NAME\s*=.*/our \$$NAME="$(PACKAGE)";/' \
-		lib/GBV/App/SeeAlso.pm
+	@perl -p -i -e 's/^our\s+\$$VERSION\s*=.*/our \$$VERSION="$(VERSION)";/' $(MAINSRC)
+	@perl -p -i -e 's/^our\s+\$$NAME\s*=.*/our \$$NAME="$(PACKAGE)";/' $(MAINSRC)
 
 # build documentation
 PANDOC = $(shell which pandoc)
@@ -35,7 +34,7 @@ release-file: documentation version
 	carton check
 	carton exec prove -Ilib
 	dpkg-buildpackage -b -us -uc -rfakeroot
-	mv ../$(RELEASE) .
+	mv ../$(PACKAGE)_$(VERSION)_*.deb .
 	git diff-index HEAD # FIXME?
 
 # do cleanup

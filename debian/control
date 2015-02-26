@@ -4,9 +4,9 @@ Priority: extra
 Maintainer: Jakob Voss <jakob.voss@gbv.de>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.2
- 
+
 Package: seealso
-Architecture: all
-Depends: perl-modules (>= 5.10.1), cpanminus, starman, libyaml-perl, libtemplate-perl, libyaml-libyaml-perl, libapp-cmd-perl, libcgi-expand-perl, libclone-perl, libconfig-onion-perl, libdata-compare-perl, libdata-util-perl, libdata-uuid-perl, libfile-find-rule-perl, libio-handle-util-perl, libjson-perl, liblist-moreutils-perl, liblog-any-adapter-perl, liblog-any-perl, libmarpa-r2-perl, libmodule-info-perl, libmoo-perl, libnamespace-clean-perl 
+Architecture: amd64
+Depends: perl-modules (>= 5.10.1), cpanminus, starman, libyaml-perl, libtemplate-perl, libyaml-libyaml-perl, libapp-cmd-perl, libclone-perl, libdata-compare-perl, libdata-uuid-perl, libfile-find-rule-perl, libio-handle-util-perl, libjson-perl, liblist-moreutils-perl, liblog-any-adapter-perl, liblog-any-perl, libmodule-info-perl, libmoo-perl, libnamespace-clean-perl 
 Recommends: carton
 Description: SeeAlso link server 
