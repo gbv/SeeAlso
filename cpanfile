@@ -11,3 +11,8 @@ requires 'Plack::Middleware::Rewrite';
 # - JSON
 # - YAML (libyaml-perl)
 # - Template Toolkit (libtemplate-perl)
+
+# Catmandu dependencies
+requires 'Catmandu';
+requires 'Catmandu::SRU';
+requires 'PICA::Data', '0.26';

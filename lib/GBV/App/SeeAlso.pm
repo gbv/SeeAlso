@@ -9,6 +9,7 @@ use Plack::Builder;
 use Plack::Request;
 use parent 'Plack::Component';
 
+# load config file
 sub config {
     my ($self, $file) = @_;
     return unless -f $file;
@@ -24,6 +25,7 @@ sub config {
 }
 
 use GBV::App::SeeAlso::Example;
+use GBV::App::SeeAlso::PND2VD17;
 
 sub prepare_app {
     my ($self) = @_;
@@ -45,7 +47,8 @@ sub prepare_app {
             pass_through => 1, root => './htdocs';
         enable 'ContentLength';
         builder {
-            mount '/example' => GBV::App::SeeAlso::Example->new();
+            mount '/example'  => GBV::App::SeeAlso::Example->new->to_app;
+            mount '/pnd2vd17' => GBV::App::SeeAlso::PND2VD17->new->to_app;
             mount '/' => sub { $self->main(@_) };
         };
     };

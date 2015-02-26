@@ -30,7 +30,8 @@ Files are installed at the following locations:
 # CONFIGURATION
 
 See `/etc/default/seealso` for basic configuration. Settings are not modified
-by updates.  Only simple key value-pairs are allowed with the following keys:
+by updates. Restart is needed after changes. Only simple key value-pairs are
+allowed with the following keys:
 
 * `PORT` - port number (required, 6009 by default)
 
@@ -38,10 +39,8 @@ by updates.  Only simple key value-pairs are allowed with the following keys:
    behind a HTTP proxy, this number is not affected by slow cient connections 
    but only by the time of processing each request.
 
-Restart is needed after changes.
-
 Additional configuration is placed in a YAML file in
-`/etc/seealso/seealso.yaml`.
+`/etc/seealso/seealso.yaml`. The following keys are recognized:
 
 * `proxy` - a space-or-comma-separated list of trusted IPs or IP-ranges
    (e.g. `192.168.0.0/16`) to take from the `X-Forwarded-For` header.
@@ -55,5 +54,5 @@ The HTML client can be customized by putting static files into directory
 Changelog is located in `debian/changelog` in the source code repository.
 
 Source code and issue tracker at <https://github.com/gbv/seealso>. See
-file `CONTRIBUTING.md` source code organization.
+file `CONTRIBUTING.md` for details.
 
