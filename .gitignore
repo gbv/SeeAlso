@@ -9,3 +9,6 @@ debian/*.substvars
 debian/*/
 *.changes
 *.deb
+
+# bower
+bower_components

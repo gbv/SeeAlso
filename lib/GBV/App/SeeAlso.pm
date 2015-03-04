@@ -60,7 +60,7 @@ sub call {
 }
 
 sub main {
-    [200,[],['Hello']];
+    [404,[],['Not found']];
 }
 
 1;
